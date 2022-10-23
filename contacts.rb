@@ -1,4 +1,4 @@
-require 'pry'
+
 
 # this method returns a hash, which you can pass to the remove_strawberry method:
 # remove_strawberry(contacts)
@@ -18,7 +18,15 @@ def contacts
 end
 
 def remove_strawberry(contacts)
-  # your code here!
+ contacts.each {|person, contact_details_hash|
+  if person == "Freddie Mercury"
+    contact_details_hash.each {|key, data|
+      if key == :favorite_ice_cream_flavors
+        data.delete_if {|flavor| flavor == "strawberry"}
+      end
+    }
+    end
+ }
 end
 
 # print the output to the terminal for inspection
